@@ -1,6 +1,6 @@
 /**
  * MPC Weather App
- * A simple weather app built with React Native CLI
+ * A modern weather app with onboarding, themes, and forecasts
  *
  * @format
  */
@@ -8,21 +8,21 @@
 import React from 'react';
 import { StatusBar, useColorScheme } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { WeatherScreen } from './src/screens';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { usethemeColors } from './src/themes/appColors';
+import { AppContainer } from './src/components/AppContainer';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
-  const colors = usethemeColors();
+
   return (
-    <GestureHandlerRootView>
+    <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>
         <StatusBar
           barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-          backgroundColor={colors.background}
+          backgroundColor="transparent"
+          translucent
         />
-        <WeatherScreen />
+        <AppContainer />
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );
