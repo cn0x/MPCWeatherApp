@@ -91,9 +91,13 @@ export const SearchBar: React.FC<SearchBarProps> = ({
 
   // Handle suggestion selection
   const handleSuggestionSelect = (suggestion: CitySuggestion) => {
-    onChangeText(suggestion.displayName);
     setShowSuggestionList(false);
     onSuggestionSelect?.(suggestion);
+  };
+
+  // Show suggestions again whenever user clicks on TextInput
+  const handleFocus = () => {
+    setShowSuggestionList(true);
   };
 
   // Handle text input changes
@@ -105,6 +109,11 @@ export const SearchBar: React.FC<SearchBarProps> = ({
       setShowSuggestionList(false);
     }
   };
+
+  const clearTextInput = () => {
+    value;
+  };
+
   const styles = StyleSheet.create({
     container: {
       flexDirection: 'row',
@@ -162,7 +171,19 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           autoCapitalize="words"
           autoCorrect={false}
           ref={inputRef}
+          onFocus={handleFocus}
+          clearButtonMode="while-editing"
         />
+        <TouchableOpacity
+          onPress={() => {
+            if (inputRef.current) {
+              inputRef.current?.clear();
+              inputRef.current?.blur();
+            }
+          }}
+        >
+          <Ionicons name="close-outline" size={20} color={colors.secondary} />
+        </TouchableOpacity>
       </View>
 
       {/* City Suggestions List */}

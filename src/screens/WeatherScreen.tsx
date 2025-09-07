@@ -47,10 +47,11 @@ import {
 export const WeatherScreen: React.FC = () => {
   const colors = usethemeColors();
   const [searchQuery, setSearchQuery] = useState('');
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
   const [locationPermission, setLocationPermission] = useState<boolean | null>(
     null,
   );
-  const [isInitialLoad, setIsInitialLoad] = useState(true);
+
   const [weatherState, setWeatherState] = useState<WeatherState>({
     data: null,
     loading: false,

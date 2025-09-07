@@ -10,6 +10,7 @@ import {
   FlatList,
   StyleSheet,
   ActivityIndicator,
+  ScrollView,
 } from 'react-native';
 import { CitySuggestion } from '../types/weather';
 import { usethemeColors } from '../themes/appColors';
@@ -168,14 +169,18 @@ export const CitySuggestionList: React.FC<CitySuggestionListProps> = ({
     }
 
     return (
-      <FlatList
-        data={suggestions}
-        renderItem={renderSuggestion}
-        keyExtractor={(item, index) => `${item.name}-${item.country}-${index}`}
-        showsVerticalScrollIndicator={false}
-        keyboardShouldPersistTaps="handled"
-        scrollEnabled
-      />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <FlatList
+          data={suggestions}
+          renderItem={renderSuggestion}
+          keyExtractor={(item, index) =>
+            `${item.name}-${item.country}-${index}`
+          }
+          showsVerticalScrollIndicator={false}
+          keyboardShouldPersistTaps="handled"
+          scrollEnabled
+        />
+      </ScrollView>
     );
   };
 

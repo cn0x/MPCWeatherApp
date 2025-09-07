@@ -201,7 +201,6 @@ export const ForecastCarousel: React.FC<ForecastCarouselProps> = ({
             <Text style={styles.hourlyTemp}>
               {formatTemperature(item.temp)}
             </Text>
-            {item.pop > 0 && <Text style={styles.hourlyPop}>{item.pop}%</Text>}
           </View>
         ))}
       </ScrollView>
@@ -231,7 +230,6 @@ export const ForecastCarousel: React.FC<ForecastCarouselProps> = ({
             <Text style={styles.dailyTempMin}>
               {formatTemperature(item.temp_min)}
             </Text>
-            {item.pop > 0 && <Text style={styles.dailyPop}>{item.pop}%</Text>}
           </View>
         </View>
       ))}
@@ -261,7 +259,9 @@ export const ForecastCarousel: React.FC<ForecastCarouselProps> = ({
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <Text style={styles.title}>Forecast</Text>
+        <Text style={styles.title}>
+          {activeTab === 'today' ? "Today's" : 'Weekly'} Forecast
+        </Text>
         <Text style={styles.date}>
           {new Date().toLocaleDateString('en-US', {
             month: 'long',
