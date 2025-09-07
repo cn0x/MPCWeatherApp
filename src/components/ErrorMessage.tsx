@@ -18,7 +18,6 @@ export const ErrorMessage: React.FC<ErrorMessageProps> = ({
 }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.errorIcon}>⚠️</Text>
       <Text style={styles.errorMessage}>{message}</Text>
       {onRetry && (
         <TouchableOpacity style={styles.retryButton} onPress={onRetry}>

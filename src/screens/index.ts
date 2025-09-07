@@ -3,3 +3,4 @@
  */
 
 export { WeatherScreen } from './WeatherScreen';
+export { OnboardingScreen } from './OnboardingScreen';
