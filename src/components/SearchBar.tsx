@@ -182,7 +182,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
             }
           }}
         >
-          <Ionicons name="close-outline" size={20} color={colors.secondary} />
+          <Ionicons name="close-outline" size={20} color={colors.primary} />
         </TouchableOpacity>
       </View>
 
